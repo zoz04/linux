@@ -3,6 +3,11 @@
 
 #filtrei os helitrons de um arquivo contendo todos os TEs e os transferi pra um arquivo proprio
  cat Psta.VARANI.tab | grep "helitron" > Psta_VARANI_helitron
-#entrei p editar em formato .bed -> que pode apenas 3 colunas
+#entrei p editar em formato .bed -> que pode apenas 3 colunas (cromossomo-coluna 1; localização-3 e 4;) (coluna 2 só indicava que era helitron)  
 cat Psta_VARANI_helitron | cut -f 1,3,4 > Psta_VARANI_helitron.bed
 
+Comando awk para gerar BED, reordenando as colunas(p virar um arquivo bed e mantendo a anotação dos TEs)
+awk 'BEGIN{OFS="\t"} {print $1, $3-1, $4, $2}' Psta.VARANI.tab > Psta.VARANI.bed
+
+intersecção entre os segmentos que tem dmr e os que configuram TEs  
+:~/enzo/METIL$ bedtools intersect -a Psta.VARANI.bed -b allo_CpG_DMR_significativas_formatado.bed > results/annotation_transposons_allo_CpG_significativas.results
