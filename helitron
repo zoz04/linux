@@ -14,3 +14,7 @@ intersecção entre os segmentos que tem dmr e os que configuram TEs
 
 #bedtools intersect mantendo as informações contidas nas colunas de ambos os arquivos (-wa -wb)
 bedtools intersect -a Psta.VARANI.bed -b allo_CpG_DMR_significativas_formatado.bed -wa -wb > results/annotation_transposons_allo_CpG_significativas.results 
+
+#abrir e criar um arquivo 
+nano count_TE_methylation.py
+#inseri um script e salvei dando ctrl x
