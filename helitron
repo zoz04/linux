@@ -1,0 +1,8 @@
+# arquivo original "head Psta.VARANI.bed" tinha # entre as infos e não estava em tab delimited
+# scripit "awk '$1 != "###" {OFS="\t"; print $1,$2,$3,$4}' Psta.VARANI.bed > Psta.VARANI.tab" resolveu
+
+#filtrei os helitrons de um arquivo contendo todos os TEs e os transferi pra um arquivo proprio
+ cat Psta.VARANI.tab | grep "helitron" > Psta_VARANI_helitron
+#entrei p editar em formato .bed -> que pode apenas 3 colunas
+cat Psta_VARANI_helitron | cut -f 1,3,4 > Psta_VARANI_helitron.bed
+
