@@ -10,7 +10,7 @@ Comando awk para gerar BED, reordenando as colunas(p virar um arquivo bed e mant
 awk 'BEGIN{OFS="\t"} {print $1, $3-1, $4, $2}' Psta.VARANI.tab > Psta.VARANI.bed
 
 intersecção entre os segmentos que tem dmr e os que configuram TEs  
-:~/enzo/METIL$ bedtools intersect -a Psta.VARANI.bed -b allo_CpG_DMR_significativas_formatado.bed > results/annotation_transposons_allo_CpG_significativas.results
+:~/enzo/METIL$ bedtools intersect -a Psta.VARANI.bed -b allo_CpG_DMR_significativas_formatado.bed -wa -wb > results/annotation_transposons_allo_CpG_significativas.results
 
 #bedtools intersect mantendo as informações contidas nas colunas de ambos os arquivos (-wa -wb)
 bedtools intersect -a Psta.VARANI.bed -b allo_CpG_DMR_significativas_formatado.bed -wa -wb > results/annotation_transposons_allo_CpG_significativas.results 
@@ -18,3 +18,18 @@ bedtools intersect -a Psta.VARANI.bed -b allo_CpG_DMR_significativas_formatado.b
 #abrir e criar um arquivo 
 nano count_TE_methylation.py
 #inseri um script e salvei dando ctrl x
+________________________________________________
+#transformar arquivo csv(virgulas e aspas) em tab delimited
+#criando um script em python (nano abre o arquivo) - mudar o nome do input e output de acordo com a necessidade
+nano csv_para_tsv.py 
+#sempre colocar o .py -> script em python e colar o script dentro arquivo
+
+#o arquivo tinha mtas colunas c infos desnecessarias pro meu intersect, ent selecionamos as colunas
+cat allo_CHG_DMR_significativas.tsv | cut -f 2,3,4,9
+#p conferir se deu certo antes de salvar 
+cat allo_CHG_DMR_significativas.tsv | cut -f 2,3,4,9 | head
+#salvar o arquivo -> transferir ele (>)
+allo_CHG_DMR_significativas.tsv | cut -f 2,3,4,9 > allo_CHG_DMR_significativas.bed
+
+#começando a conversao dos dados da urca, n consegui usar o csv_para_tsv.py pq ele tava na pasta anterior, ent pra transferir/copiar o arquivo
+cp ../csv_para_tsv.py .
