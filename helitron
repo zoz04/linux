@@ -22,7 +22,8 @@ ________________________________________________
 #transformar arquivo csv(virgulas e aspas) em tab delimited
 #criando um script em python (nano abre o arquivo) - mudar o nome do input e output de acordo com a necessidade
 nano csv_para_tsv.py 
-#sempre colocar o .py -> script em python e colar o script dentro arquivo
+#sempre colocar o .py -> script em python e colar o script dentro arquivo. ai rodar
+python3 csv_para_tsv.py
 
 #o arquivo tinha mtas colunas c infos desnecessarias pro meu intersect, ent selecionamos as colunas
 cat allo_CHG_DMR_significativas.tsv | cut -f 2,3,4,9
