@@ -34,3 +34,21 @@ allo_CHG_DMR_significativas.tsv | cut -f 2,3,4,9 > allo_CHG_DMR_significativas.b
 
 #começando a conversao dos dados da urca, n consegui usar o csv_para_tsv.py pq ele tava na pasta anterior, ent pra transferir/copiar o arquivo
 cp ../csv_para_tsv.py .
+______________________________________________________________________
+#para analisar os genes diferencialmente expressos proximos aos helitrons diferencialmente metilados, pegar os Helitrons que coincidem com DMRs (do arquivo helitron_annotation_cha_CHG_significativas.results), expandir ±2 kb e então buscar genes do GFF3 que caem dentro dessas janelas.
+#primeiro, filtrar do arquivo os helitrons
+ head annotation_transposons_urc_CHH_significativas.results
+ cat annotation_transposons_cha_CHG_significativas.results | grep "helitron" > helitron_annotation_cha_CHG_significativas.results
+#comando pra rodar
+ python3 genes_near_helitron_dmrs.py -i helitron_annotation_cha_CHH_significativas.results -g /home/dcanal/Pitcairnia/reference_genome/Psta-Annotation-HQ.gff3 -o helitrons_cha_CHH_dmrs_2kb --flank 2000 --use helitron --feature gene
+
+#em que: -i=input que deve ter o nome alterado; -o=output tb deve ter o nome alterado de acordo(ex. helitrons_cha_CHG_dmrs_2kb);
+#em seguida, para identificar as funções biologicas dos genes em questao, se deve extrair do arquivo gff3 o código go(gene ontology)-> transformar em arquivos as listas de gene de cada condiçao
+ nano gene_common_elements_CpG_cha.txt #(...) assim vai
+#rodar o comando
+ grep -F -f gene_common_elements_CpG_cha.txt /home/dcanal/Pitcairnia/reference_genome/Psta-Annotation-HQ.gff3 \
+| awk '$3=="gene"' \
+| awk -F'\t' '{print $9}' \
+| sed 's/;/\n/g' \
+| grep gene_ontology > GO_CpG_cha_results.txt
+
