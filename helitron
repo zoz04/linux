@@ -50,5 +50,7 @@ ______________________________________________________________________
 | awk '$3=="gene"' \
 | awk -F'\t' '{print $9}' \
 | sed 's/;/\n/g' \
-| grep gene_ontology > GO_CpG_cha_results.txt
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#os arquivos "output_gene_common_elements_CHH_allo.txt" contem todas as infos sobre os genes prox aos helitrons, n tava conseguindo separar por colunas no excel, entao pedi pra claude me gerar um script q tivesse como produto somente os go terms, p q eu pudesse colocar no revigo
+
 
