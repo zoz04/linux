@@ -53,4 +53,10 @@ ______________________________________________________________________
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #os arquivos "output_gene_common_elements_CHH_allo.txt" contem todas as infos sobre os genes prox aos helitrons, n tava conseguindo separar por colunas no excel, entao pedi pra claude me gerar um script q tivesse como produto somente os go terms, p q eu pudesse colocar no revigo
 
-
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#gerar a imagem da localização cromossômica dos helitrons: 
+nano plot_genes.py #criei o arquivo e inseri o codigo que pedi pra clau
+ python3 plot_helitron_karyotype.py     --gff   ~/enzo/Varani/Palb_helitrons_filt.gff3     --genes ~/enzo/Varani/captured_genes/results/Palb_captured_genes.tsv     --output helitron_karyotype.png
+#imagem gerada, para transferir ela p os downloads do pc:
+ cd .\Downloads\
+scp dcanal@143.106.221.184:~/enzo/Varani/helitron_karyotype.png
