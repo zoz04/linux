@@ -1,2 +1,4 @@
 # carregar o genoma em load genome: Palb.fa. 
 #em file->open Palb-Annotation-HQ (1).gff3 (genes) e Palb.fa.mod.EDTA.helitron.gff3 (helitrons)
+#igv parece que precisa da localização dos genes no cromossomo, entao pego o id dos meus genes de interesse(genes_within_helitron) e procuro no arquivo e anotação dos genes
+
