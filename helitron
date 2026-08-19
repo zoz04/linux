@@ -69,6 +69,14 @@ scp dcanal@143.106.221.184:~/enzo/Varani/helitron_karyotype.png
 python3 plot_helitron_karyotype.py     --gff   ~/enzo/Varani/Psta_helitrons_filt.gff3     --genes ~/enzo/Varani/curadoria_manual/Psta_genes_within_helitrons.gff    --output Psta_helitron_karyotype.png
 #codigo da cor cinza no script: #b8b8bc; vermelha: FF6969
 
+#pra refazer a imagem com a nova lista de genes criei um arquivo txt com a essa lista
+nano ids.txt
+#pedi pre claude criar um script e criei o arquivo e colei as linhas de comando
+nano filtrar_gff3_por_ids.py
+python3 filtrar_gff3_por_ids.py \
+    --gff3 ~/enzo/Varani/Psta-Annotation-HQ.gff3 \
+    --ids /caminho/completo/para/ids.txt \
+    --out Psta-Annotation-HQ.filtrado.gff3
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 #depois de ver no IGV que alguns genes que supostamente teriam helitrons integralmente contidos em sua sequencia(bedtools intersect a-Palb-Annotation-HQ (1).gff3 b-Palb.fa.mod.EDTA.helitron.gff3 f1.0 -wa) apresentavam helitrons que nao se restringiam ao segmento, refiz o bedtools alterando a ordem 
 bedtools intersect -a Palb.fa.mod.EDTA.helitron.gff3 -b Palb-Annotation-HQ.gff3 -f 1.0 -wb > curadoria_manual/Palb_helitron_within_genes.gff
