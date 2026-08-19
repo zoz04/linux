@@ -75,8 +75,9 @@ nano ids.txt
 nano filtrar_gff3_por_ids.py
 python3 filtrar_gff3_por_ids.py \
     --gff3 ~/enzo/Varani/Psta-Annotation-HQ.gff3 \
-    --ids /caminho/completo/para/ids.txt \
+    --ids ~/enzo/Varani//para/ids.txt \
     --out Psta-Annotation-HQ.filtrado.gff3
+
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 #depois de ver no IGV que alguns genes que supostamente teriam helitrons integralmente contidos em sua sequencia(bedtools intersect a-Palb-Annotation-HQ (1).gff3 b-Palb.fa.mod.EDTA.helitron.gff3 f1.0 -wa) apresentavam helitrons que nao se restringiam ao segmento, refiz o bedtools alterando a ordem 
 bedtools intersect -a Palb.fa.mod.EDTA.helitron.gff3 -b Palb-Annotation-HQ.gff3 -f 1.0 -wb > curadoria_manual/Palb_helitron_within_genes.gff
