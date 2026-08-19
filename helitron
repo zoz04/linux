@@ -94,3 +94,5 @@ scp dcanal@143.106.221.184:~/enzo/Varani/curadoria_manual/Psta_helitron_within_g
 find ~ -iname "ids.txt" 2>/dev/null
 #pra passar um arquivo do pc pro terminal
  scp "C:/Users/instalador/Documents/zozo/newHQhelitrons-intersect/Palb_Helitrons_superHQ_v2.gff3" dcanal@143.106.221.184:/home/dcanal/enzo/Varani/
+#pra passar do terminal por pvc
+scp dcanal@vm-pesq-Clarisse-OS23320:/home/dcanal/enzo/Varani/Psta_helitron_karyotype_FILTRADO.png "C:/Users/instalador/Documents/zozo/newHQhelitrons-intersect/"scp dcanal@vm-pesq-Clarisse-OS23320:/home/dcanal/enzo/Varani/Psta_helitron_karyotype_FILTRADO.png "C:/Users/instalador/Documents/zozo/newHQhelitrons-intersect/"
