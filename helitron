@@ -88,3 +88,7 @@ bedtools intersect -a Psta.EDTA.Helitron.gff3 -b Psta-Annotation-HQ.gff3 -f 1.0 
 
 #vou comparar os dois arquivos da seguinte forma: primeiro passar o novo Palb_helitron_within_genes.gff pro meu pc 
 scp dcanal@143.106.221.184:~/enzo/Varani/curadoria_manual/Psta_helitron_within_genes.gff "C:\Users\instalador\Documents\zozo"
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#pra achar um arquivo
+find ~ -iname "ids.txt" 2>/dev/null
